@@ -1,0 +1,3 @@
+Hola,
+
+Los contraseña para inicio de sesión es: 1234.
