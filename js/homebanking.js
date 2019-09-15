@@ -1,9 +1,12 @@
 //Declaración de variables
 
-// var nombreUsuario = prompt("Ingresa tu nombre");
 var nombreUsuario = "Keven Chaparro";
-var saldoCuenta = 20000;
+var saldoCuenta = 200;
 var limiteExtraccion = 5000;
+var agua = 350;
+var telefono = 425;
+var luz = 210;
+var internet = 570;
 
 //Ejecución de las funciones que actualizan los valores de las variables en el HTML.
 window.onload = function() {
@@ -79,10 +82,48 @@ function depositarDinero() {
     nuevoSaldoDepositado();
 }
 
-function pagarServicio() {
+function pagarServicio(){
+    var servicioSeleccionado = parseInt(
+        prompt(
+            `Digita el número del servicio que deseas pagar: \n
+            1- Agua
+            2- Luz
+            3- Télefono
+            4- Internet\n`
+        )
+    );
+    
+    switch(servicioSeleccionado){
+        case 1:
+            pagar(agua)
+            break;
+        case 2:
+            pagar(telefono)
+            break;
+        case 3:
+            pagar(luz)
+            break;
+        case 4:
+            pagar(internet)
+            break;
+        default:
+            alert("ALERTA:\nEl número ingresado no es valido. Vuelve a intentar.")
+    }
+
+    function pagar(servicioSeleccionado){
+        if(servicioSeleccionado > saldoCuenta){
+            alert("ALERTA:\nNo tienes suficiente dinero, debes depositar más dinero en tu cuenta. Vuelve a intentarlo.")            
+        }else{
+            alert(`Haz r`);
+            console.log(saldoCuenta);
+            saldoCuenta -= servicioSeleccionado;
+            actualizarSaldoEnPantalla();
+        }
+    }
 
 }
 
+            
 function transferirDinero() {
 
 }
