@@ -9,3 +9,7 @@ https://github.com/kevcb1988/HomeBanking
 
 ### Contraseña inicio sesión proyecto
 1234
+
+### Cuentas amigas
+N°1: 1234567
+N°2: 7654321
