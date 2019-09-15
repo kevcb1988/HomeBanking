@@ -1,9 +1,11 @@
 # HomeBanking
 Acamica - Proyecto N°2
 
-## Enlace proyecto
+### Enlace proyecto
 https://kevcb1988.github.io/HomeBanking/
 
-## Enlace repositorio
+### Enlace repositorio
+https://github.com/kevcb1988/HomeBanking
 
-## Contraseña inicio sesión proyecto: 1234
+### Contraseña inicio sesión proyecto
+1234
