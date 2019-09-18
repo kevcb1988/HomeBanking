@@ -173,7 +173,6 @@ function transferirDinero() {
 
 }
 
-
 function iniciarSesion() {
 
     if(codigo_cuenta === pass){
