@@ -2,11 +2,10 @@
 //Declaración de variables
 
 var nombreUsuario = prompt("Ingresa tu usuario");
-var codigo_cuenta = parseInt(prompt("Ingresa tu código de cuenta"));
-var pass = 1234;
+var codigo_cuenta = prompt("Ingresa tu código de cuenta");
+var pass = "1234";
 var saldoCuenta = 2000;
 var limiteExtraccion = 5000;
-
 
 //Ejecución de las funciones que actualizan los valores de las variables en el HTML.
 window.onload = function() {
@@ -22,7 +21,7 @@ function sumarDinero(dineroDepositado){
 }
 
 function restarDinero(dineroRetirado){
-    if(dineroRetirado > saldoCuenta || dineroRetirado > limiteExtraccion){
+    if(dineroRetirado > saldoCuenta || dineroRetirado > limiteExtraccion || isNaN){
         alert(`¡ATENCIÓN! La cantidad de dinero ingresada es superior a tu saldo actual o excede el monto de retiro permitido.`)
     }else if(dineroRetirado % 100 ){
         alert(`¡ATENCIÓN! Solo puedes sacar billetes de $100`)
@@ -64,13 +63,27 @@ function nuevoSaldoRetirado(){
 
 //Funciones que tenes que completar
 function cambiarLimiteDeExtraccion(){
+    
     nuevoLimiteDeExtraccion = parseInt(prompt("¿Cuál es tu nuevo limite de extracción?"))
-    limiteExtraccion = nuevoLimiteDeExtraccion;
-    actualizarLimiteEnPantalla();
+    console.log(nuevoLimiteDeExtraccion);
+
+    if(nuevoLimiteDeExtraccion < 0 || isNaN ){
+        alert("Recuerda unicamente ingresar números. Vuelve a intentarlo")
+    }else{
+        limiteExtraccion = nuevoLimiteDeExtraccion;
+        actualizarLimiteEnPantalla();
+    }
+
 }
 
 function extraerDinero() {
     dineroRetirado = parseInt(prompt("¿Cuánto dinero deseas retirar?"));
+
+    if(dineroRetirado != NaN){
+        alert("Hola")
+    }
+
+
     restarDinero(dineroRetirado);
 }
 
@@ -146,7 +159,7 @@ function transferirDinero() {
         if(cuenta_amiga === cuenta_amiga_1 || cuenta_amiga === cuenta_amiga_2){
             transferencia_exitosa();
         }else{
-            alert("\nADVERTENCIA:\nCuenta amiga no encontrada. Vuelve a intentarlo."  );
+            alert("\nADVERTENCIA:\nCuenta amiga no encontrada. Vuelve a intentarlo.");
         }
     }
     
@@ -163,7 +176,7 @@ function transferirDinero() {
 
 function iniciarSesion() {
 
-    if(codigo_cuenta == pass){
+    if(codigo_cuenta === pass){
         alert(
             `\nBienvenido(a) Sr(a). ${nombreUsuario.toUpperCase()}.\nEmpieza a disfrutar de nuestros servicios.\n`
         );
