@@ -60,19 +60,31 @@ function nuevoSaldoRetirado(){
 //Funciones que tenes que completar
 function cambiarLimiteDeExtraccion(){
     nuevoLimiteDeExtraccion = parseInt(prompt("¿Cuál es tu nuevo limite de extracción?"))
-    limiteExtraccion = nuevoLimiteDeExtraccion;
-    actualizarLimiteEnPantalla();
+    if(isNaN(nuevoLimiteDeExtraccion) || nuevoLimiteDeExtraccion < 0){
+        alert("Oh oh, algo salió mal. Intenta nuevamente");
+    }else{
+        limiteExtraccion = nuevoLimiteDeExtraccion;
+        actualizarLimiteEnPantalla();
+    }
 }
 
 function extraerDinero() {
     dineroRetirado = parseInt(prompt("¿Cuánto dinero deseas retirar?"));
-    restarDinero(dineroRetirado);
+    if(isNaN(dineroRetirado) || dineroRetirado < 0){
+        alert("Oh oh, algo salió mal. Intenta nuevamente")
+    }else{
+        restarDinero(dineroRetirado);
+    }
 }
 
 function depositarDinero() {
     dineroDepositado = parseInt(prompt("¿Cuánto dinero deseas depositar?"));
-    sumarDinero(dineroDepositado);
-    nuevoSaldoDepositado();
+    if(isNaN(dineroDepositado) || dineroDepositado < 0){
+        alert("Oh oh, algo salió mal. Intenta nuevamente")
+    }else{
+        sumarDinero(dineroDepositado);
+        nuevoSaldoDepositado();
+    }
 }
 
 function pagarServicio(){
@@ -126,7 +138,7 @@ function transferirDinero() {
     var cuenta_amiga_2 = 7654321;
 
     var cantidad_dinero_transferir = parseInt(prompt(
-        "\nTRANSFERENCIA DE DINERO:\nIngresa la cantidad de dinero que deseas transferir.\nLuego selecciona tu cuenta amiga.\n"
+        "\nTRANSFERENCIA DE DINERO:\nIngresa la cantidad de dinero que deseas transferir.\n"
     ));
 
     if(cantidad_dinero_transferir > saldoCuenta){
