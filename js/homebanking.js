@@ -1,11 +1,10 @@
 //Declaración de variables
 
 var nombreUsuario = prompt("Ingresa tu usuario");
-var codigo_cuenta = parseInt(prompt("Ingresa tu código de cuenta"));
-var pass = 1234;
+var codigo_cuenta = prompt("Ingresa tu código de cuenta");
+var pass = "1234";
 var saldoCuenta = 2000;
 var limiteExtraccion = 5000;
-
 
 //Ejecución de las funciones que actualizan los valores de las variables en el HTML.
 window.onload = function() {
@@ -141,19 +140,22 @@ function transferirDinero() {
         "\nTRANSFERENCIA DE DINERO:\nIngresa la cantidad de dinero que deseas transferir.\n"
     ));
 
-    if(cantidad_dinero_transferir > saldoCuenta){
-        alert(
-            "\nADVERTENCIA:\nNo tienes suficiente dinero en tu cuenta. Deposita y vuelve a intentarlo."  
-        )
+    if(isNaN(cantidad_dinero_transferir) || cantidad_dinero_transferir < 0){
+        alert("Oh oh, algo salió mal. Intenta nuevamente");
     }else{
-        var cuenta_amiga = parseInt(prompt(
-            "\nTU CUENTA AMIGA:\nIngresa el número de cuenta a la cual deseas realizar la transferencia.\n"
-        ));
-
-        if(cuenta_amiga === cuenta_amiga_1 || cuenta_amiga === cuenta_amiga_2){
-            transferencia_exitosa();
+        if(cantidad_dinero_transferir > saldoCuenta){
+            alert(
+                "\nADVERTENCIA:\nOh, oh, algo salió mal. Intenta nuevamente."  
+            )
         }else{
-            alert("\nADVERTENCIA:\nCuenta amiga no encontrada. Vuelve a intentarlo."  );
+            var cuenta_amiga = parseInt(prompt(
+                "\nTU CUENTA AMIGA:\nIngresa el número de cuenta a la cual deseas realizar la transferencia.\n"
+            ));
+            if(cuenta_amiga === cuenta_amiga_1 || cuenta_amiga === cuenta_amiga_2){
+                transferencia_exitosa();
+            }else{
+                alert("\nADVERTENCIA:\nCuenta amiga no encontrada. Vuelve a intentarlo.");
+            }
         }
     }
     
@@ -170,7 +172,7 @@ function transferirDinero() {
 
 function iniciarSesion() {
 
-    if(codigo_cuenta == pass){
+    if(codigo_cuenta === pass){
         alert(
             `\nBienvenido(a) Sr(a). ${nombreUsuario.toUpperCase()}.\nEmpieza a disfrutar de nuestros servicios.\n`
         );
